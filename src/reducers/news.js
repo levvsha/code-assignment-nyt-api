@@ -4,15 +4,18 @@ const initialState = {
   isLoading: false,
   searchQuery: 'amsterdam',
   newsList: null,
-  expandedNewsId: null
+  expandedNewsId: null,
+  pageOffset: 0,
+  errorMessage: null
 };
 
 export default function game(state = initialState, action) {
   const {
     type,
-    // searchQuery,
+    searchQuery,
     newsList,
-    expandedNewsId
+    expandedNewsId,
+    errorMessage
   } = action;
 
   switch (type) {
@@ -31,14 +34,34 @@ export default function game(state = initialState, action) {
     case newsActionTypes.SET_LIST:
       return {
         ...state,
-        newsList
-      }
+        newsList,
+        pageOffset: 1
+      };
+
+    case newsActionTypes.ADD_NEW_ITEMS:
+      return {
+        ...state,
+        newsList: state.newsList.concat(newsList),
+        pageOffset: state.pageOffset + 1
+      };
+
+    case newsActionTypes.UPDATE_SEARCH_QUERY:
+      return {
+        ...state,
+        searchQuery
+      };
+
+    case newsActionTypes.SET_ERROR_MESSAGE:
+      return {
+        ...state,
+        errorMessage
+      };
 
     case newsActionTypes.SET_EXPANDED_NEWS_ID:
       return {
         ...state,
         expandedNewsId
-      }
+      };
 
     default:
       return state;

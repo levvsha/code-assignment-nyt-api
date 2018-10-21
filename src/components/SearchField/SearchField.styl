@@ -1,0 +1,33 @@
+.c-search-field {
+  align-items: center
+  background: rgba(0,0,0,.3)
+  border-radius: 10px
+  display: flex
+  justify-content: space-between
+  padding: 0.5em 0.5em 0.5em 1em
+  getTransition(all, 0.5s)
+  width: 500px
+  margin: 0 auto
+
+  &:hover,
+  &:focus {
+    background: rgba(0,0,0,.4)
+  }
+
+  .search-input {
+    appearance: none
+    background: transparent
+    border: 0
+    color: inherit
+    font: inherit
+    outline: 0
+  }
+
+  .search-input {
+    flex: 1
+
+    &::placeholder {
+      color: #fff
+    }
+  }
+}

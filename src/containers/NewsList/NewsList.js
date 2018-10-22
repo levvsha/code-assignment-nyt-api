@@ -76,7 +76,7 @@ export class NewsList extends Component {
         <div className="container">
           <div className="news-list">
             {
-              newsList && this.props.newsList.map(item => (
+              !!newsList.length && this.props.newsList.map(item => (
                 <NewsItem
                   {...item}
                   key={item.id}
@@ -85,13 +85,20 @@ export class NewsList extends Component {
                 />
               ))
             }
+            {
+              !this.props.newsList.length && !isLoading && (
+                <div className="notification">
+                  No news on this topic...
+                </div>
+              )
+            }
           </div>
           <div className={`button-wrapper${ isLoading ? ' is-loading' : '' }`}>
             {
-              isLoading && <Preloader color="white" />
+              isLoading && !!newsList.length && pageOffset <= config.pageOffsetLimit && <Preloader color="white" />
             }
             {
-              newsList && pageOffset <= config.pageOffsetLimit && !!newsList.length && (
+              !!newsList.length && pageOffset <= config.pageOffsetLimit && (
                 <button
                   className="load-more-button"
                   onClick={this.handleLoadMoreButtonClick}

@@ -23,6 +23,12 @@ body {
 .c-news-list .news-list {
   overflow: hidden;
 }
+.c-news-list .notification {
+  text-align: center;
+  font-size: 28px;
+  padding-top: 30px;
+  font-style: italic;
+}
 .c-news-list .button-wrapper {
   padding: 15px 0 30px;
   position: relative;
@@ -258,4 +264,4 @@ body {
   }
 }
 /*# sourceMappingURL=src/components/Preloader/Preloader.css.map */
-/*# sourceMappingURL=main.c7658eef0c8319c0aad7.css.map*/
+/*# sourceMappingURL=main.55fdd961f0aa2d41c16b.css.map*/

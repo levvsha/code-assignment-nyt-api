@@ -3,7 +3,7 @@ import * as newsActionTypes from 'constants/NewsConstants';
 export const getInitialState = () => ({
   isLoading: false,
   searchQuery: 'amsterdam',
-  newsList: null,
+  newsList: [],
   expandedNewsId: null,
   pageOffset: 0,
   errorMessage: null

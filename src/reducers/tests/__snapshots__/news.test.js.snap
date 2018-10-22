@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`news reducer initial state is correct 1`] = `
+Object {
+  "errorMessage": null,
+  "expandedNewsId": null,
+  "isLoading": false,
+  "newsList": null,
+  "pageOffset": 0,
+  "searchQuery": "amsterdam",
+}
+`;

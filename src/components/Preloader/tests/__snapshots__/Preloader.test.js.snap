@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Preloader /> Preloader renders correctly 1`] = `
+<div
+  className="c-preloader"
+>
+  <div
+    className="spinner"
+  >
+    <div
+      className="bounce1"
+      style={
+        Object {
+          "backgroundColor": "white",
+        }
+      }
+    />
+    <div
+      className="bounce2"
+      style={
+        Object {
+          "backgroundColor": "white",
+        }
+      }
+    />
+    <div
+      className="bounce3"
+      style={
+        Object {
+          "backgroundColor": "white",
+        }
+      }
+    />
+  </div>
+</div>
+`;

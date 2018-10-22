@@ -1,15 +1,17 @@
 import * as newsActionTypes from 'constants/NewsConstants';
 
-const initialState = {
+export const getInitialState = () => ({
   isLoading: false,
   searchQuery: 'amsterdam',
   newsList: null,
   expandedNewsId: null,
   pageOffset: 0,
   errorMessage: null
-};
+});
 
-export default function game(state = initialState, action) {
+const initialState = getInitialState();
+
+export default function news(state = initialState, action) {
   const {
     type,
     searchQuery,

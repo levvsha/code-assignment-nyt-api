@@ -35,7 +35,6 @@ export default class NewsItem extends Component {
   }
 
   handleResize = () => {
-    console.log('ojoj ==>')
     const imageHeight = this.image && this.image.getBoundingClientRect().height;
 
     this.setState({ expandedImageHeight: imageHeight });

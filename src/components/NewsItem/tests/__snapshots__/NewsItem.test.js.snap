@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NewsItem /> NewsItem renders correctly 1`] = `
+<div
+  className="c-news-item"
+  onClick={[Function]}
+>
+  <div
+    className="item-media"
+    style={null}
+  >
+    <div
+      className="image-wrapper"
+    >
+      <img
+        alt=""
+        src="url/to/image.jpg"
+      />
+    </div>
+  </div>
+  <div
+    className="item-body"
+  >
+    <h3
+      className="item-title"
+    >
+      headline
+    </h3>
+    <div
+      className="item-description"
+    >
+      <p
+        className="item-published"
+      >
+        Publisherd: 
+        24 September 2018
+      </p>
+      <p
+        className="item-snippet"
+      >
+        snippet
+      </p>
+      <p
+        className="read-more"
+      >
+        <a
+          href="url/to/article"
+          target="_blank"
+        >
+          Read more
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+`;

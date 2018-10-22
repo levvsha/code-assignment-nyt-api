@@ -2,19 +2,19 @@ import format from 'date-fns/format';
 import _find from 'lodash.find';
 
 import config from 'config';
-import * as gameActionTypes from 'constants/NewsConstants';
+import * as newsActionTypes from 'constants/NewsConstants';
 import * as newsAPI from 'api/newsAPI';
 
 export function toggleNewsCondition(id) {
   return {
-    type: gameActionTypes.SET_EXPANDED_NEWS_ID,
+    type: newsActionTypes.SET_EXPANDED_NEWS_ID,
     expandedNewsId: id
   }
 }
 
 export function updateSearchQuery(event) {
   return {
-    type: gameActionTypes.UPDATE_SEARCH_QUERY,
+    type: newsActionTypes.UPDATE_SEARCH_QUERY,
     searchQuery: event.target.value
   }
 }
@@ -22,16 +22,15 @@ export function updateSearchQuery(event) {
 export function getNews(searchQuery, isLoadMore) {
   return async (dispatch, getState) => {
     dispatch({
-      type: gameActionTypes.START_REQUEST
+      type: newsActionTypes.START_REQUEST
     });
 
     try {
       const { pageOffset } = getState().news;
-      console.log('pageOffset ==>', pageOffset);
       const response = await newsAPI.getNews(searchQuery, isLoadMore ? pageOffset : 0);
 
       dispatch({
-        type: gameActionTypes.FINISH_REQUEST
+        type: newsActionTypes.FINISH_REQUEST
       });
 
       if (response.data && response.data.status === 'OK') {
@@ -39,12 +38,12 @@ export function getNews(searchQuery, isLoadMore) {
 
         if (isLoadMore) {
           dispatch({
-            type: gameActionTypes.ADD_NEW_ITEMS,
+            type: newsActionTypes.ADD_NEW_ITEMS,
             newsList
           });
         } else {
           dispatch({
-            type: gameActionTypes.SET_LIST,
+            type: newsActionTypes.SET_LIST,
             newsList
           });
         }
@@ -53,12 +52,12 @@ export function getNews(searchQuery, isLoadMore) {
       console.error('getNews action: ', error);
 
       dispatch({
-        type: gameActionTypes.FINISH_REQUEST
+        type: newsActionTypes.FINISH_REQUEST
       });
 
       if (error.response.data.errors) {
         dispatch({
-          type: gameActionTypes.SET_ERROR_MESSAGE,
+          type: newsActionTypes.SET_ERROR_MESSAGE,
           errorMessage: error.response.data.errors.join(' ')
         });
       }
@@ -66,7 +65,7 @@ export function getNews(searchQuery, isLoadMore) {
   }
 }
 
-const processList = (list) => list.map(item => {
+export const processList = (list) => list.map(item => {
   let image = 'images/logo.jpg';
 
   if (item.multimedia.length) {

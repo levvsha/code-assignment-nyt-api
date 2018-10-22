@@ -67,7 +67,7 @@ export function getNews(searchQuery, isLoadMore) {
 }
 
 const processList = (list) => list.map(item => {
-  let image = '/images/logo.jpg';
+  let image = 'images/logo.jpg';
 
   if (item.multimedia.length) {
     const source = _find(item.multimedia, item => item.subtype === 'largeWidescreen573' || item.subtype === 'xlarge');

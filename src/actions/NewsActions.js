@@ -5,13 +5,18 @@ import config from 'config';
 import * as newsActionTypes from 'constants/NewsConstants';
 import * as newsAPI from 'api/newsAPI';
 
+/*
+  Set active (expanded) news ID
+ */
 export function toggleNewsCondition(id) {
   return {
     type: newsActionTypes.SET_EXPANDED_NEWS_ID,
     expandedNewsId: id
   }
 }
-
+/*
+  Update search field value
+ */
 export function updateSearchQuery(event) {
   return {
     type: newsActionTypes.UPDATE_SEARCH_QUERY,
@@ -19,6 +24,9 @@ export function updateSearchQuery(event) {
   }
 }
 
+/*
+  Request news list
+ */
 export function getNews(searchQuery, isLoadMore) {
   return async (dispatch, getState) => {
     dispatch({
@@ -65,6 +73,9 @@ export function getNews(searchQuery, isLoadMore) {
   }
 }
 
+/*
+  Process list of news and grab only needed fields
+ */
 export const processList = (list) => list.map(item => {
   let image = 'images/logo.jpg';
 

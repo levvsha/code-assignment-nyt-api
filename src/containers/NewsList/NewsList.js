@@ -30,16 +30,25 @@ export class NewsList extends Component {
     this.props.actions.getNews(this.props.searchQuery);
   }
 
+  /*
+    Call the action to set active (expanded) news ID
+   */
   toggleNewsCondition = (id) => {
     this.props.actions.toggleNewsCondition(id);
   }
 
+  /*
+    Call the action to request more news
+   */
   handleLoadMoreButtonClick = () => {
     if (!this.props.isLoading) {
       this.props.actions.getNews(this.props.searchQuery, true);
     }
   }
 
+  /*
+    Handle key down event and request new news list when hit "Enter" key
+   */
   handleKeyDown = (event) => {
     if (!this.props.isLoading && event.keyCode === 13) { // "Enter" key
       this.props.actions.getNews(this.props.searchQuery);

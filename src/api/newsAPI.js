@@ -7,6 +7,7 @@ export function getNews(query = 'amsterdam', pageOffset = 0) {
     params: {
       q: query,
       page: pageOffset,
+      sort: 'newest',
       fq: 'source:("The New York Times")',
       fl: 'web_url,source,news_desk,snippet,multimedia,headline,pub_date,_id'
     }

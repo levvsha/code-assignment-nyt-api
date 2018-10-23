@@ -37,6 +37,7 @@ export default function news(state = initialState, action) {
       return {
         ...state,
         newsList,
+        expandedNewsId: null,
         pageOffset: 1
       };
 

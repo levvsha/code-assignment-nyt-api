@@ -35,21 +35,22 @@ describe('Update search field and search behaviour', () => {
     cy.visit('http://localhost:3000/');
 
     cy.get('.c-news-item')
-      .as('news')
       .should('have.length', 10);
 
-    cy.get('@news')
-      .eq(1)
-      .then(($newsItem) => {
-        const firstNewsTitle = $newsItem.text();
+    cy.get('.c-news-item .item-title')
+      .then($news => {
+        const text = $news.text();
 
         cy.get('.search-input')
           .clear()
           .type('moscow{enter}');
 
-        cy.get('@news')
-          .eq(1)
-          .should('not.have.value', firstNewsTitle);
+        cy.wait(2000) // wait for the new news list request finishing
+          .then(() => {
+            cy.get('.c-news-item .item-title')
+              .invoke('text')
+              .should('not.equal', text);
+          });
       });
   });
 });

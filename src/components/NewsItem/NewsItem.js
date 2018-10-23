@@ -22,7 +22,7 @@ export default class NewsItem extends Component {
 
   constructor() {
     super();
-
+    // for performance reasons we wrapped resize handler function into lodash debounce method
     this.debouncedHandleResize = _debounce(this.handleResize, 350);
   }
 
@@ -34,12 +34,20 @@ export default class NewsItem extends Component {
     window.removeEventListener('resize', this.debouncedHandleResize);
   }
 
+  /*
+    Update expandedImageHeight property after window resize
+   */
   handleResize = () => {
-    const imageHeight = this.image && this.image.getBoundingClientRect().height;
+    if (this.props.isActive) {
+      const imageHeight = this.image && this.image.getBoundingClientRect().height;
 
-    this.setState({ expandedImageHeight: imageHeight });
+      this.setState({ expandedImageHeight: imageHeight });
+    }
   }
 
+  /*
+    Read news image height and write it to expandedImageHeight state property
+   */
   handleClick = () => {
     if (!this.props.isActive) {
       const imageHeight = this.image && this.image.getBoundingClientRect().height;

@@ -5,7 +5,7 @@ Object {
   "errorMessage": null,
   "expandedNewsId": null,
   "isLoading": false,
-  "newsList": null,
+  "newsList": Array [],
   "pageOffset": 0,
   "searchQuery": "amsterdam",
 }

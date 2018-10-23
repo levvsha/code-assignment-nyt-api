@@ -50,7 +50,6 @@ describe('<NewsItem />', () => {
   });
 
   it('NewsItem onChange handler is triggered', () => {
-
     const component = shallow(
       <NewsItem
         headline="headline"
@@ -58,7 +57,7 @@ describe('<NewsItem />', () => {
         id="id"
         snippet="snippet"
         image="https://static01.nyt.com/images/2018/09/25/arts/25newamsterdam1/merlin_144237420_bf8f658f-7574-4665-b650-051b5cf0dec6-articleLarge.jpg"
-        isActive={false}
+        isActive={true}
         publicationDate="24 September 2018"
         link="https://www.nytimes.com/2018/09/24/arts/television/new-amsterdam-review-nbc.html"
       />
@@ -75,7 +74,7 @@ describe('<NewsItem />', () => {
         component.unmount();
 
         resolve();
-      }, 400);
+      }, 400); // fait for debounced resize event handler will be executed
     });
   });
 });
